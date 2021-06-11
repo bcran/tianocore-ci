@@ -1,9 +1,22 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent none
     stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
+        stage('Setup') {
+            parallel {
+                stage('Setup Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                    }
+                }
+                stage('Setup Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                    }
+                }
             }
         }
     }
