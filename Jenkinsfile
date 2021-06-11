@@ -8,6 +8,7 @@ pipeline {
                         label "windows"
                     }
                     steps {
+			echo "Hello from Windows"
                     }
                 }
                 stage('Setup Linux') {
@@ -15,8 +16,17 @@ pipeline {
                         label "linux"
                     }
                     steps {
+			echo "Hello from Linux"
                     }
                 }
+		stage('Setup macOS') {
+		    agent {
+			label "macos"
+		    }
+		    steps {
+			echo "Hello from macOS"
+		    }
+		}
             }
         }
     }
