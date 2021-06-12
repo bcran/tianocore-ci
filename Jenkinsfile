@@ -2,7 +2,6 @@ pipeline {
     agent none
     stages {
         stage('Setup') {
-            parallel {
                 stage('Setup Windows') {
                     agent {
                         label "windows"
@@ -27,7 +26,6 @@ pipeline {
 			echo "Hello from macOS"
 		    }
 		}
-            }
         }
     }
 }
