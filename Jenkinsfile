@@ -16,7 +16,7 @@ pipeline {
                         label "linux"
                     }
                     steps {
-                        sh "setup.sh"
+                        sh "./setup.sh"
                     }
                 }
                 stage('Setup macOS') {
@@ -24,7 +24,7 @@ pipeline {
                         label "macos"
                     }
                     steps {
-                        sh "setup.sh"
+                        sh "./setup.sh"
                     }
                 }
             }
