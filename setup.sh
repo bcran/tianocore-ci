@@ -23,5 +23,7 @@ else
 	fi
 fi
 
-make -C edk2/BaseTools -j${NUM_CORES}
+cd edk2
+git submodule update --init --force
+make -C BaseTools -j${NUM_CORES}
 	

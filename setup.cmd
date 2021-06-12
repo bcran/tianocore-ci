@@ -14,4 +14,5 @@ if not exist edk2 (
 )
 
 cd edk2
+git submodule update --init --force
 edksetup.bat Reconfig ForceRebuild VS2019
