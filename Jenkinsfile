@@ -8,7 +8,7 @@ pipeline {
                         label "windows"
                     }
                     steps {
-                        echo "Hello from Windows"
+                        bat "setup.cmd"
                     }
                 }
                 stage('Setup Linux') {
@@ -16,7 +16,7 @@ pipeline {
                         label "linux"
                     }
                     steps {
-                        echo "Hello from Linux"
+                        sh "setup.sh"
                     }
                 }
                 stage('Setup macOS') {
@@ -24,7 +24,7 @@ pipeline {
                         label "macos"
                     }
                     steps {
-                        echo "Hello from macOS"
+                        sh "setup.sh"
                     }
                 }
             }
