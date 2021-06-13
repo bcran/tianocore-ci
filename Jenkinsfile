@@ -1,6 +1,7 @@
 pipeline {
     agent none
     stages {
+     stage('Run') {
 	parallel {
                 stage('Windows') {
                     agent {
@@ -37,6 +38,7 @@ pipeline {
 			sh "./build_ovmf.sh"
                     }
                 }
+	    }
 	}
     }
 }
