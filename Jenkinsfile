@@ -41,6 +41,7 @@ pipeline {
                     }
 		    environment {
 			TOOL_CHAIN_TAG="XCODE5"
+			PATH="$PATH:/usr/local/bin"
 		    }
                     steps {
                         sh "./setup.sh"
