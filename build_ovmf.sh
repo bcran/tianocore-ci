@@ -4,6 +4,7 @@ set -e
 set -u
 
 cd edk2
+export EDK_TOOLS_PATH=$PWD/BaseTools
 . ./edksetup.sh
 build -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE
 build -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG
