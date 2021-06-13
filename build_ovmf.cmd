@@ -1,11 +1,6 @@
 cd edk2
 set WORKSPACE=%CD%
-echo Running edksetup.bat
-edksetup.bat reconfig vs2019
-echo "Environment configured. Building..."
-set
-echo %WORKSPACE%
-where build
+call edksetup.bat reconfig vs2019
 
 build -p OvmfPkg/OvmfPkgX64.dsc -t VS2019 -a X64 -b RELEASE || exit /b
 build -p OvmfPkg/OvmfPkgX64.dsc -t VS2019 -a X64 -b DEBUG || exit /b
