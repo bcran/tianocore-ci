@@ -11,6 +11,14 @@ pipeline {
                         bat "setup.cmd"
                     }
                 }
+		stage('Build OVMF') {
+		    agent {
+			label "windows"
+		    }
+		    steps {
+			bat "build_ovmf.cmd"
+		    }
+		}
                 stage('Setup Linux') {
                     agent {
                         label "linux"
@@ -25,32 +33,6 @@ pipeline {
                     }
                     steps {
                         sh "./setup.sh"
-                    }
-                }
-            }
-            parallel {
-                stage('Build OVMF on Windows') {
-                    agent {
-                        label "windows"
-                    }
-                    steps {
-                        bat "build_ovmf.cmd"
-                    }
-                }
-                stage('Build OVMF on Linux') {
-                    agent {
-                        label "windows"
-                    }
-                    steps {
-                        sh "build_ovmf.sh"
-                    }
-                }
-                stage('Build OVMF on macOS') {
-                    agent {
-                        label "macos"
-                    }
-                    steps {
-                        sh "build_ovmf.sh"
                     }
                 }
             }
