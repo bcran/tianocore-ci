@@ -24,6 +24,7 @@ pipeline {
                     }
                     steps {
                         sh "./setup.sh"
+			sh "./build_ovmf.sh"
                     }
                 }
                 stage('macOS') {
@@ -32,6 +33,7 @@ pipeline {
                     }
                     steps {
                         sh "./setup.sh"
+			sh "./build_ovmf.sh"
                     }
                 }
     }
