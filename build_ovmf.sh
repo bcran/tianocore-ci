@@ -3,6 +3,9 @@
 set -e
 
 cd edk2
+whoami
+env
+set
 . ./edksetup.sh
 build -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE
 build -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG
