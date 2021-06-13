@@ -44,40 +44,8 @@ pipeline {
             }
           }
         }
-
-        stage('macOS') {
-          agent {
-            label "macos"
-          }
-          environment {
-            TOOL_CHAIN_TAG="XCODE5"
-            PATH="$PATH:/usr/local/bin"
-          }
-          stages {
-            stage('Setup') {
-              steps {
-                sh "./setup.sh"
-              }
-            }
-            stage ('Build') {
-              steps {
-               sh "./build_ovmf.sh OvmfPkg64.dsc X64"
-              }
-            }
-          }
-        }
       }
     }
-    stage('Run2') {
-	      parallel {
-        stage('macOS') {
-                steps {
-                        sh "echo hello"
-                }
-        }
-      }
-
   }
-}
 }
 
