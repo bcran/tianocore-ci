@@ -1,7 +1,7 @@
 cd edk2
 set WORKSPACE=%CD%
-edksetup.bat reconfig vs2019 || type nul>nul
-
+echo Running edksetup.bat
+edksetup.bat reconfig vs2019
 echo "Environment configured. Building..."
 set
 echo %WORKSPACE%
