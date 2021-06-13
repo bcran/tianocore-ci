@@ -43,9 +43,17 @@ pipeline {
 			TOOL_CHAIN_TAG="XCODE5"
 			PATH="$PATH:/usr/local/bin"
 		    }
-                    steps {
-                        sh "./setup.sh"
-			sh "./build_ovmf.sh"
+		    stages {
+			stage('Setup') {
+                    	  steps {
+                            sh "./setup.sh"
+		    	  }
+			}
+			stage ('Build') {
+			  steps {
+			    sh "./build_ovmf.sh"
+			  }
+			}
                     }
                 }
 	    }
