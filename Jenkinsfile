@@ -5,24 +5,6 @@ pipeline {
   }
   stages {
     stage('Run') {
-        stage('Windows') {
-          agent {
-            label "windows"
-          }
-          stages {
-            stage('Setup') {
-              steps {
-                bat "setup.cmd"
-              }
-            }
-            stage('Build') {
-              steps {
-                bat "build_ovmf.cmd"
-              }
-            }
-          }
-        }
-
         stage('Linux') {
           agent {
             label "linux"
@@ -33,12 +15,7 @@ pipeline {
           stages {
             stage('Setup') {
               steps {
-                sh "./setup.sh"
-              }
-            }
-            stage('Build') {
-              steps {
-                sh "./build_ovmf.sh"
+                sh "env"
               }
             }
           }
