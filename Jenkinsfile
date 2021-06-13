@@ -28,7 +28,7 @@ pipeline {
                         label "linux"
                     }
 		    environment {
-			TOOL_CHAIN_TAG=GCC5
+			TOOL_CHAIN_TAG="GCC5"
 		    }
                     steps {
                         sh "./setup.sh"
@@ -40,7 +40,7 @@ pipeline {
                         label "macos"
                     }
 		    environment {
-			TOOL_CHAIN_TAG=XCODE5
+			TOOL_CHAIN_TAG="XCODE5"
 		    }
                     steps {
                         sh "./setup.sh"
