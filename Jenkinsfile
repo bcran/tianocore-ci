@@ -27,6 +27,9 @@ pipeline {
                     agent {
                         label "linux"
                     }
+		    environment {
+			TOOL_CHAIN_TAG=GCC5
+		    }
                     steps {
                         sh "./setup.sh"
 			sh "./build_ovmf.sh"
@@ -36,6 +39,9 @@ pipeline {
                     agent {
                         label "macos"
                     }
+		    environment {
+			TOOL_CHAIN_TAG=XCODE5
+		    }
                     steps {
                         sh "./setup.sh"
 			sh "./build_ovmf.sh"
