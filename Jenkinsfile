@@ -34,7 +34,7 @@ pipeline {
         TOOL_CHAIN_TAG="GCC5"
       }
       steps {
-        bat "echo %OSTYPE%
+        bat "echo %OSTYPE%"
       }
     }
 
