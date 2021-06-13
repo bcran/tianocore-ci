@@ -12,9 +12,9 @@ pipeline {
                             steps {
                                 bat "setup.cmd"
                             }
-                            stage('Build') {
+                        }
+                        stage('Build') {
                                 bat "build_ovmf.cmd"
-                            }
                         }
                     }
                 }
