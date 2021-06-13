@@ -23,7 +23,7 @@ pipeline {
         TOOL_CHAIN_TAG="GCC5"
       }
       steps {
-        sh "echo $OSTYPE"
+        sh "env"
       }
     }
     stage('Run3') {
@@ -34,7 +34,7 @@ pipeline {
         TOOL_CHAIN_TAG="GCC5"
       }
       steps {
-        bat "echo %OSTYPE%"
+        bat "set"
       }
     }
 
