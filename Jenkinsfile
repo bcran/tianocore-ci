@@ -60,8 +60,26 @@ pipeline {
               }
             }
             stage ('Build') {
-              steps {
-                sh "./build_ovmf.sh"
+              parallel {
+                stage('OVMF X64') {
+                  steps {
+                    sh "./build_ovmf.sh OvmfPkg64.dsc X64"
+                  }
+                }
+                stage('OVMF IA32') {
+                  steps {
+                    sh "./build_ovmf.sh OvmfPkgIa32.dsc IA32"
+                  }
+                }
+                stage('OVMF XEN') {
+                  environment {
+                    FILE="OvmfXen.dsc"
+                    ARCH="X64"
+                  }
+                  steps {
+                    sh "./build_ovmf.sh OvmfXen.dsc X64"
+                  }
+                }
               }
             }
           }
