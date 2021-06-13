@@ -5,7 +5,6 @@ pipeline {
   }
   stages {
     stage('Run') {
-      parallel {
         stage('Windows') {
           agent {
             label "windows"
@@ -43,7 +42,6 @@ pipeline {
               }
             }
           }
-        }
       }
     }
   }
