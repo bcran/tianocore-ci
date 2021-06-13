@@ -14,7 +14,9 @@ pipeline {
                             }
                         }
                         stage('Build') {
+                            steps {
                                 bat "build_ovmf.cmd"
+                            }
                         }
                     }
                 }

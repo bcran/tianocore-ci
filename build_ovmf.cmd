@@ -1,3 +1,4 @@
+cd edk2
 edksetup.bat reconfig || exit /b
 
 build -p OvmfPkg/OvmfPkgX64.dsc -t VS2019 -a X64 -b RELEASE || exit /b
