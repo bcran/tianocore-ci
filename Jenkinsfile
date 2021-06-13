@@ -9,16 +9,9 @@ pipeline {
                     }
                     steps {
                         bat "setup.cmd"
+			bat "build_ovmf.cmd"
                     }
                 }
-		stage('Build OVMF') {
-		    agent {
-			label "windows"
-		    }
-		    steps {
-			bat "build_ovmf.cmd"
-		    }
-		}
                 stage('Setup Linux') {
                     agent {
                         label "linux"
