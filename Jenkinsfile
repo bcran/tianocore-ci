@@ -28,6 +28,32 @@ pipeline {
                     }
                 }
             }
+            parallel {
+                stage('Build OVMF on Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        bat "build_ovmf.cmd"
+                    }
+                }
+                stage('Build OVMF on Linux') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        sh "build_ovmf.sh"
+                    }
+                }
+                stage('Build OVMF on macOS') {
+                    agent {
+                        label "macos"
+                    }
+                    steps {
+                        sh "build_ovmf.sh"
+                    }
+                }
+            }
         }
     }
 }
