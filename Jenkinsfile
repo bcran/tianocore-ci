@@ -1,9 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Setup') {
-            parallel {
-                stage('Setup Windows') {
+                stage('Windows') {
                     agent {
                         label "windows"
                     }
@@ -20,7 +18,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Setup Linux') {
+                stage('Linux') {
                     agent {
                         label "linux"
                     }
@@ -28,7 +26,7 @@ pipeline {
                         sh "./setup.sh"
                     }
                 }
-                stage('Setup macOS') {
+                stage('macOS') {
                     agent {
                         label "macos"
                     }
@@ -36,8 +34,6 @@ pipeline {
                         sh "./setup.sh"
                     }
                 }
-            }
-        }
     }
 }
 
