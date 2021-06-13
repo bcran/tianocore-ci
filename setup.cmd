@@ -16,6 +16,7 @@ if not exist edk2 (
 
 cd edk2
 git submodule update --init --force || exit /b
+set WORKSPACE=%CD%
 edksetup.bat ForceRebuild VS2019 || exit /b
 edksetup.bat Reconfig || exit /b
 
