@@ -67,14 +67,17 @@ pipeline {
           }
         }
       }
-      parallel {
-	stage('macOS') {
-		steps {
-			sh "echo hello"
-		}
-	}
-      }
     }
+    stage('Run2') {
+	      parallel {
+        stage('macOS') {
+                steps {
+                        sh "echo hello"
+                }
+        }
+      }
+
   }
+}
 }
 
