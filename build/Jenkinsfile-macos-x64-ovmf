@@ -113,7 +113,7 @@ pipeline {
           B="RELEASE"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b RELEASE"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32X64 DEBUG') {
@@ -128,7 +128,7 @@ pipeline {
           B="DEBUG"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b DEBUG"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32X64 NOOPT') {
@@ -143,7 +143,7 @@ pipeline {
           B="NOOPT"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b NOOPT"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgXen RELEASE') {
