@@ -12,7 +12,7 @@ pipeline {
         TOOL_CHAIN_TAG="GCC5"
       }
       steps {
-        sh "./setup.sh"
+        sh "./build/setup.sh"
       }
     }
     stage('Build') {
@@ -22,7 +22,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE"
         }
       }
       stage('Build OvmfPkgX64 DEBUG') {
@@ -30,7 +30,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG"
         }
       }
       stage('Build OvmfPkgX64 NOOPT') {
@@ -38,7 +38,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b NOOPT"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b NOOPT"
         }
       }
       stage('Build OvmfPkgIa32 RELEASE') {
@@ -46,7 +46,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b RELEASE"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b RELEASE"
         }
       }
       stage('Build OvmfPkgIa32 DEBUG') {
@@ -54,7 +54,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b DEBUG"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b DEBUG"
         }
       }
       stage('Build OvmfPkgIa32 NOOPT') {
@@ -62,7 +62,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b NOOPT"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b NOOPT"
         }
       }
       stage('Build OvmfPkgIa32X64 RELEASE') {
@@ -70,7 +70,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b RELEASE"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b RELEASE"
         }
       }
       stage('Build OvmfPkgIa32X64 DEBUG') {
@@ -78,7 +78,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b DEBUG"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b DEBUG"
         }
       }
       stage('Build OvmfPkgIa32X64 NOOPT') {
@@ -86,7 +86,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b NOOPT"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b NOOPT"
         }
       }
       stage('Build OvmfPkgXen RELEASE') {
@@ -94,7 +94,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b RELEASE"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b RELEASE"
         }
       }
       stage('Build OvmfPkgXen DEBUG') {
@@ -102,7 +102,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b DEBUG"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b DEBUG"
         }
       }
       stage('Build OvmfPkgXen NOOPT') {
@@ -110,7 +110,7 @@ pipeline {
           label "macos"
         }
         steps {
-          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b NOOPT"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b NOOPT"
         }
       }
     }
