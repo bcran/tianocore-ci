@@ -8,6 +8,8 @@ echo "Working directory is $PWD"
 EDK2REPO=https://github.com/tianocore/edk2.git
 NUM_CORES=$(getconf _NPROCESSORS_ONLN)
 
+cd ..
+
 if [ ! -d edk2 ]; then
 	git clone ${EDK2REPO}
 else
