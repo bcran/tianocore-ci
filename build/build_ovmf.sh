@@ -5,16 +5,16 @@ set -e
 while getopts "t:a:b:p:" OPTION; do
 	case $OPTION in
 	t)
-		TOOLCHAIN=$OPTARG
+		T=$OPTARG
 		;;
 	a)
-		ARCH="$ARCH $OPTARG"
+		A="$ARCH $OPTARG"
 		;;
 	b)
-		BUILD=$OPTARG
+		B=$OPTARG
 		;;
 	p)
-		PLATFORM=$OPTARG
+		P=$OPTARG
 		;;
 	*)
 		echo "Invalid option"
@@ -25,11 +25,11 @@ done
 
 cd ../edk2
 #WORKSPACE=$PWD
-TOOLCHAIN=${TOOLCHAIN:-GCC5}
+T=${T:-GCC5}
+
 
 echo "PWD is $PWD"
 #echo "WORKSPACE is $WORKSPACE"
-ls
 . ./edksetup.sh
 
-build -p $PLATFORM -t $TOOLCHAIN -a $ARCH -b $BUILD
+build -p $P -t $T -a $A -b $B
