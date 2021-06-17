@@ -17,7 +17,6 @@ pipeline {
     }
     stage('Build') {
     parallel {
-      stages {
       stage('Build OvmfPkgX64 RELEASE') {
         agent {
           label "macos"
@@ -113,7 +112,6 @@ pipeline {
         steps {
           sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b NOOPT"
         }
-      }
       }
     }
     }
