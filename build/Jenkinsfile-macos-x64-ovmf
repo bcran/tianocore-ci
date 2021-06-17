@@ -21,53 +21,96 @@ pipeline {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="RELEASE"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgX64 DEBUG') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="DEBUG"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgX64 NOOPT') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="NOOPT"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b NOOPT"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32 RELEASE') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="X64"
+          B="RELEASE"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b RELEASE"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32 DEBUG') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="X64"
+          B="DEBUG"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b DEBUG"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32 NOOPT') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="X64"
+          B="NOOPT"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b NOOPT"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgIa32X64 RELEASE') {
         agent {
           label "macos"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="RELEASE"
         }
         steps {
           sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b RELEASE"
@@ -77,6 +120,13 @@ pipeline {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="DEBUG"
+        }
         steps {
           sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b DEBUG"
         }
@@ -84,6 +134,13 @@ pipeline {
       stage('Build OvmfPkgIa32X64 NOOPT') {
         agent {
           label "macos"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="NOOPT"
         }
         steps {
           sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b NOOPT"
@@ -93,24 +150,42 @@ pipeline {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="RELEASE"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b RELEASE"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgXen DEBUG') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="DEBUG"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b DEBUG"
+          sh "./build/build_ovmf.sh"
         }
       }
       stage('Build OvmfPkgXen NOOPT') {
         agent {
           label "macos"
         }
+        environment {
+          P="OvmfPkg/OvmfPkgXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="NOOPT"
+        }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b NOOPT"
+          sh "./build/build_ovmf.sh"
         }
       }
     }
