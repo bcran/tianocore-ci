@@ -4,6 +4,7 @@ set -e
 
 cd ../edk2
 WORKSPACE=$PWD
+PATH=$PATH:/usr/local/bin
 
 . ./edksetup.sh
 
