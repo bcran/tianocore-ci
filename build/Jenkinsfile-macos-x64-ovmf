@@ -9,7 +9,7 @@ pipeline {
         label "macos"
       }
       environment {
-        TOOL_CHAIN_TAG="GCC5"
+        TOOL_CHAIN_TAG="XCODE5"
       }
       steps {
         sh "./build/setup.sh"
@@ -23,7 +23,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgX64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="RELEASE"
         }
@@ -37,7 +37,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgX64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="DEBUG"
         }
@@ -51,7 +51,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgX64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="NOOPT"
         }
@@ -65,8 +65,8 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32.dsc"
-          T="GCC5"
-          A="X64"
+          T="XCODE5"
+          A="IA32"
           B="RELEASE"
         }
         steps {
@@ -79,8 +79,8 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32.dsc"
-          T="GCC5"
-          A="X64"
+          T="XCODE5"
+          A="IA32"
           B="DEBUG"
         }
         steps {
@@ -93,8 +93,8 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32.dsc"
-          T="GCC5"
-          A="X64"
+          T="XCODE5"
+          A="IA32"
           B="NOOPT"
         }
         steps {
@@ -107,13 +107,13 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           A2="IA32"
           B="RELEASE"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b RELEASE"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b RELEASE"
         }
       }
       stage('Build OvmfPkgIa32X64 DEBUG') {
@@ -122,13 +122,13 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           A2="IA32"
           B="DEBUG"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b DEBUG"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b DEBUG"
         }
       }
       stage('Build OvmfPkgIa32X64 NOOPT') {
@@ -137,13 +137,13 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           A2="IA32"
           B="NOOPT"
         }
         steps {
-          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b NOOPT"
+          sh "./build/build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t XCODE5 -a X64 -a IA32 -b NOOPT"
         }
       }
       stage('Build OvmfPkgXen RELEASE') {
@@ -152,7 +152,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgXen.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="RELEASE"
         }
@@ -166,7 +166,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgXen.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="DEBUG"
         }
@@ -180,7 +180,7 @@ pipeline {
         }
         environment {
           P="OvmfPkg/OvmfPkgXen.dsc"
-          T="GCC5"
+          T="XCODE5"
           A="X64"
           B="NOOPT"
         }
