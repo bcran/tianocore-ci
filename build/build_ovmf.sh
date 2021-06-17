@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -x
 
 while getopts "t:a:b:p:" OPTION; do
 	case $OPTION in
