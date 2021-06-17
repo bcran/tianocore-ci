@@ -23,7 +23,9 @@ while getopts "t:a:b:p:" OPTION; do
 	esac
 done
 
-cd edk2
+echo "PWD is $PWD"
+
+cd ../edk2
 WORKSPACE=$PWD
 TOOLCHAIN=${TOOLCHAIN:-GCC5}
 
