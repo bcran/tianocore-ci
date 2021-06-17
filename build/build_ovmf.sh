@@ -23,12 +23,13 @@ while getopts "t:a:b:p:" OPTION; do
 	esac
 done
 
-echo "PWD is $PWD"
-
 cd ../edk2
 WORKSPACE=$PWD
 TOOLCHAIN=${TOOLCHAIN:-GCC5}
 
+echo "PWD is $PWD"
+echo "WORKSPACE is $WORKSPACE"
+ls
 . ./edksetup.sh
 
 build -p $PLATFORM -t $TOOLCHAIN -a $ARCH -b $BUILD
