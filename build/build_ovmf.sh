@@ -24,11 +24,11 @@ while getopts "t:a:b:p:" OPTION; do
 done
 
 cd ../edk2
-WORKSPACE=$PWD
+#WORKSPACE=$PWD
 TOOLCHAIN=${TOOLCHAIN:-GCC5}
 
 echo "PWD is $PWD"
-echo "WORKSPACE is $WORKSPACE"
+#echo "WORKSPACE is $WORKSPACE"
 ls
 . ./edksetup.sh
 
