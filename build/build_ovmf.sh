@@ -3,10 +3,8 @@
 set -e
 
 cd ../edk2
-#WORKSPACE=$PWD
+WORKSPACE=$PWD
 
-echo "PWD is $PWD"
-#echo "WORKSPACE is $WORKSPACE"
 . ./edksetup.sh
 
 ARCH2=
