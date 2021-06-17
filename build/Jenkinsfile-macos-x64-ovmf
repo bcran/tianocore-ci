@@ -1,0 +1,118 @@
+pipeline {
+  agent none
+  options {
+    parallelsAlwaysFailFast()
+  }
+  stages {
+    stage('Setup') {
+      agent {
+        label "macos"
+      }
+      environment {
+        TOOL_CHAIN_TAG="GCC5"
+      }
+      steps {
+        sh "./setup.sh"
+      }
+    }
+    parallel {
+      stage('Build OvmfPkgX64 RELEASE') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b RELEASE"
+        }
+      }
+      stage('Build OvmfPkgX64 DEBUG') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b DEBUG"
+        }
+      }
+      stage('Build OvmfPkgX64 NOOPT') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgX64.dsc -t GCC5 -a X64 -b NOOPT"
+        }
+      }
+      stage('Build OvmfPkgIa32 RELEASE') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b RELEASE"
+        }
+      }
+      stage('Build OvmfPkgIa32 DEBUG') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b DEBUG"
+        }
+      }
+      stage('Build OvmfPkgIa32 NOOPT') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32.dsc -t GCC5 -a IA32 -b NOOPT"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 RELEASE') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b RELEASE"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 DEBUG') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b DEBUG"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 NOOPT') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgIa32X64.dsc -t GCC5 -a X64 -a IA32 -b NOOPT"
+        }
+      }
+      stage('Build OvmfPkgXen RELEASE') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b RELEASE"
+        }
+      }
+      stage('Build OvmfPkgXen DEBUG') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b DEBUG"
+        }
+      }
+      stage('Build OvmfPkgXen NOOPT') {
+        agent {
+          label "macos"
+        }
+        steps {
+          sh "build_ovmf.sh -p OvmfPkg/OvmfPkgXen.dsc -t GCC5 -a X64 -b NOOPT"
+        }
+      }
+    }
+  }
+}
+
