@@ -149,12 +149,12 @@ pipeline {
           sh "./build/build_ovmf.sh"
         }
       }
-      stage('Build OvmfPkgXen RELEASE') {
+      stage('Build OvmfXen RELEASE') {
         agent {
           label "macos"
         }
         environment {
-          P="OvmfPkg/OvmfPkgXen.dsc"
+          P="OvmfPkg/OvmfXen.dsc"
           T="XCODE5"
           A="X64"
           B="RELEASE"
@@ -163,12 +163,12 @@ pipeline {
           sh "./build/build_ovmf.sh"
         }
       }
-      stage('Build OvmfPkgXen DEBUG') {
+      stage('Build OvmfXen DEBUG') {
         agent {
           label "macos"
         }
         environment {
-          P="OvmfPkg/OvmfPkgXen.dsc"
+          P="OvmfPkg/OvmfXen.dsc"
           T="XCODE5"
           A="X64"
           B="DEBUG"
@@ -177,12 +177,12 @@ pipeline {
           sh "./build/build_ovmf.sh"
         }
       }
-      stage('Build OvmfPkgXen NOOPT') {
+      stage('Build OvmfPkg NOOPT') {
         agent {
           label "macos"
         }
         environment {
-          P="OvmfPkg/OvmfPkgXen.dsc"
+          P="OvmfPkg/OvmfPkg.dsc"
           T="XCODE5"
           A="X64"
           B="NOOPT"
