@@ -1,0 +1,198 @@
+pipeline {
+  agent none
+  options {
+    parallelsAlwaysFailFast()
+  }
+  stages {
+    stage('Setup') {
+      agent {
+        label "linux"
+      }
+      environment {
+        TOOL_CHAIN_TAG="GCC5"
+      }
+      steps {
+        sh "./build/setup.sh"
+      }
+    }
+    stage('Build') {
+    parallel {
+      stage('Build OvmfPkgX64 RELEASE') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="RELEASE"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgX64 DEBUG') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="DEBUG"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgX64 NOOPT') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgX64.dsc"
+          T="GCC5"
+          A="X64"
+          B="NOOPT"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32 RELEASE') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="IA32"
+          B="RELEASE"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32 DEBUG') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="IA32"
+          B="DEBUG"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32 NOOPT') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32.dsc"
+          T="GCC5"
+          A="IA32"
+          B="NOOPT"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 RELEASE') {
+        agent {
+          label "linux"
+        }
+	when { expression { false } }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="RELEASE"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 DEBUG') {
+        agent {
+          label "linux"
+        }
+	when { expression { false } }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="DEBUG"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfPkgIa32X64 NOOPT') {
+        agent {
+          label "linux"
+        }
+	when { expression { false } }
+        environment {
+          P="OvmfPkg/OvmfPkgIa32X64.dsc"
+          T="GCC5"
+          A="X64"
+          A2="IA32"
+          B="NOOPT"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfXen RELEASE') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="RELEASE"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfXen DEBUG') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="DEBUG"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+      stage('Build OvmfXen NOOPT') {
+        agent {
+          label "linux"
+        }
+        environment {
+          P="OvmfPkg/OvmfXen.dsc"
+          T="GCC5"
+          A="X64"
+          B="NOOPT"
+        }
+        steps {
+          sh "./build/build_ovmf.sh"
+        }
+      }
+    }
+    }
+  }
+}
+
