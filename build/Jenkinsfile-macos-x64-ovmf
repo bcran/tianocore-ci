@@ -177,12 +177,12 @@ pipeline {
           sh "./build/build_ovmf.sh"
         }
       }
-      stage('Build OvmfPkg NOOPT') {
+      stage('Build OvmfXen NOOPT') {
         agent {
           label "macos"
         }
         environment {
-          P="OvmfPkg/OvmfPkg.dsc"
+          P="OvmfPkg/OvmfXen.dsc"
           T="XCODE5"
           A="X64"
           B="NOOPT"
