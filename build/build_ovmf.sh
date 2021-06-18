@@ -9,7 +9,7 @@ PATH=$PATH:/usr/local/bin
 . ./edksetup.sh
 
 ARCH2=
-if [ -v A2 ]; then
+if [ -n "$A2" ]; then
 	ARCH2="-a $A2"
 fi
 

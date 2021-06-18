@@ -105,6 +105,7 @@ pipeline {
         agent {
           label "macos"
         }
+	when { expression { false } }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
           T="XCODE5"
@@ -120,6 +121,7 @@ pipeline {
         agent {
           label "macos"
         }
+	when { expression { false } }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
           T="XCODE5"
@@ -135,6 +137,7 @@ pipeline {
         agent {
           label "macos"
         }
+	when { expression { false } }
         environment {
           P="OvmfPkg/OvmfPkgIa32X64.dsc"
           T="XCODE5"
